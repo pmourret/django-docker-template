@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    {% block meta %}
+        {% include 'config/meta.html' %}
+    {% endblock %}
+
+    <title>
+        {% block title %}
+            MyBank
+        {% endblock %}
+    </title>
+    {# -------------- CSS ---------------- #}
+    {# Include de bootstrap #}
+    {% block bootstrap %}
+        {% include 'config/bootstrap.html' %}
+    {% endblock %}
+
+    {% block sidebar_css %}
+        {% include 'config/link_sidebar_css.html' %}
+    {% endblock %}
+
+    {# -------------- ICONS --------------- #}
+    {# Include de bootstrap icons #}
+    {% block bt-icons %}
+        {% include 'config/bt-icons.html' %}
+    {% endblock %}
+
+    {# Include de boxicons #}
+    {% block boxicons %}
+        {% include 'config/boxicons.html' %}
+    {% endblock %}
+
+</head>
+<body>
+
+{# Cette portion définit la barre de navigation latérale  #}
+{# Elle ne peut pas être passé par un include. #}
+<div class="sidebar close">
+    <div class="logo-details">
+        <i class="bi bi-stack"></i>
+        <span class="logo_name">App Name</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="#">
+                <i class="bi bi-speedometer2"></i>
+                <span class="link_name">Dashboard</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Category</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-collection'></i>
+                    <span class="link_name">Category</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Category</a></li>
+                <li><a href="#">Submenu 1</a></li>
+                <li><a href="#">Submenu 2</a></li>
+                <li><a href="#">Submenu 4</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="#" alt="profileImg">
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">
+                        <a href="" class="text-light">
+                            Nom Utilisateur
+                        </a>
+                    </div>
+                    <div class="job">
+                        Groupe utilisateur
+                    </div>
+                </div>
+                <a href="#" class="href"><i class='bx bx-log-out'></i></a>
+
+            </div>
+        </li>
+    </ul>
+</div>
+<section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu'></i>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    {% block search %}
+                        <form class="d-flex" role="search">
+                            {% csrf_token %}
+                            <select class="form-select me-1" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    {% endblock %}
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    {% block module %}
+    {% endblock %}
+</section>
+
+{% block sidebar_js %}
+    {% include 'partials/sidebar_js.html' %}
+{% endblock %}
+
+{% block fontawesome %}
+    {% include 'config/fontawesome.html' %}
+{% endblock %}
+
+{% block ionicons %}
+    {% include 'config/ionicons.html' %}
+{% endblock %}
+</body>
+</html>
